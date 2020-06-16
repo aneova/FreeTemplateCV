@@ -1,0 +1,17 @@
+
+<nav class="navbar  bg-dark shadow-sm">
+  <div>
+    <a class="h3 text-white" href="#">FreeTemplateCV.com</a>
+  </div>
+  <div class="navbar-nav-scroll">
+    <ul class="navbar-nav bd-navbar-nav flex-row">
+      <li routerLinkActive="active" class="nav-item mx-1 " [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link text-white" [routerLink]="['/']">Home</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item mx-1"><a class="nav-link text-white" [routerLink]="['/about']"> About </a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
