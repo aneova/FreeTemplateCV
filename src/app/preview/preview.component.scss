@@ -1,13 +1,16 @@
 .editText {
+  font-size: 13px !important;
+  font-family: Roboto,"Helvetica Neue", Arial, sans-serif;
+}
+label {
   font-size: 1rem !important;
   font-family: Roboto,"Helvetica Neue", Arial, sans-serif;
 }
-
 .headerSquare {
   padding: .5rem;
   margin: .5rem;
   background: black;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   color: white;
   border-radius: .5rem;
 
@@ -108,7 +111,7 @@ $main-color: #ffffff;
     background-size: contain;
     height: 125px;
     width: 125px;
-    margin-left: 5rem;
+    margin-left: 2rem;
     border-radius: 50%;
     &-error {
       display: none;

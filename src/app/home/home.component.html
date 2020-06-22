@@ -2,8 +2,8 @@
   <div class="headerSquare">
     <div class="row">
       <div class="col-2">
-        <input [ngStyle]="getStyles()"type="text"  [(ngModel)]="fname" name="firstName" placeholder="FIRST NAME" style="margin-top:30px;text-align:center;">
-        <input [ngStyle]="getStyles()"type="text" [(ngModel)]="sname" placeholder="SECOND NAME" style="text-align:center;">
+        <input [ngStyle]="getStyles()"type="text"  [(ngModel)]="fname" name="firstName" placeholder="FIRST NAME" style="margin-top:2rem;text-align:center;background: #000;">
+        <input [ngStyle]="getStyles()"type="text" [(ngModel)]="sname" placeholder="SECOND NAME" style="text-align:center;background: #000;">
      </div>
       <div class="col">
         <i class="fa fa-home"></i> <input [ngStyle]="getStyles()" [(ngModel)]="country" type="text" placeholder="Country, City">
@@ -15,7 +15,7 @@
         <i class="fa fa-envelope"></i><input [ngStyle]="getStyles()" [(ngModel)]="email" type="text" placeholder="email"><br/>
         <i class="fa fa-phone" style="font-size: 1rem;"></i><input [ngStyle]="getStyles()" [(ngModel)]="phone"  type="text" placeholder="phone">
       </div>
-      <div class="row-cols-md-8">
+      <div class="row-cols-md-7">
         <i class="fa fa-globe"></i> <input [ngStyle]="getStyles()"type="text" [(ngModel)]="web" placeholder="Web"><br/>
         <i class="fa fa-skype"></i> <input [ngStyle]="getStyles()"type="text" [(ngModel)]="skype" placeholder="Skype"><br/>
         <i class="fa fa-github"></i> <input [ngStyle]="getStyles()"type="text" [(ngModel)]="gitHub" placeholder="GitHub"><br/>
@@ -27,7 +27,6 @@
                  [ngStyle]="{'background-image': 'url('+ selectedFile.src + ')'}">
             </div>
           </div>
-
         </div>
     </div>
   </div>
@@ -36,7 +35,7 @@
   <div class="row">
     <div class="col ml-2"> <strong class="fa fa-user-circle h4"> Profile: </strong>
       <div id="quill" class="editText">
-        <quill-editor id="edit1" placeholder="A few words about yourself...">
+        <quill-editor id="edit1" [(ngModel)]="profile" placeholder="A few words about yourself...">
         </quill-editor>
       </div>
     </div>
@@ -153,11 +152,11 @@
             <div class="form-row">
               <div class="form-group col-3">
                 <label class="h6 ml-1">Start date</label>
-                <input type="text" class="form-control" style="width: 100px;"  [bsConfig]="bsConfig" bsDatepicker  value="{{ form.start | date:'MMM, yyyy' }}">
+                <input type="text" class="form-control" style="width: 100px;" [(ngModel)]="form.start" [bsConfig]="bsConfig" bsDatepicker  value="{{ form.start | date:'MMM, yyyy' }}">
               </div>
               <div class="form-group col-3">
                 <label class="h6 ml-3">End date: </label>
-                <input type="text" class="form-control ml-3" style="width: 100px;"  [bsConfig]="bsConfig" bsDatepicker value="{{ form.end | date:'MMM, yyyy' }}">
+                <input type="text" class="form-control ml-3" style="width: 100px;" [(ngModel)]="form.end" [bsConfig]="bsConfig" bsDatepicker value="{{ form.end | date:'MMM, yyyy' }}">
               </div>
               <div class="form-group col-6">
                 <label  for="edCityTitle">City:</label>
@@ -215,11 +214,11 @@
           <div class="form-row">
             <div class="form-group col-3">
               <label class="h6 ml-1">Start date</label>
-              <input type="text" class="form-control" style="width: 100px;"  [bsConfig]="bsConfig" bsDatepicker  value="{{ form.start | date:'MMM, yyyy' }}">
+              <input type="text" class="form-control" [(ngModel)]="form.start" style="width: 100px;"  [bsConfig]="bsConfig" bsDatepicker  value="{{ form.start | date:'MMM, yyyy' }}">
             </div>
             <div class="form-group col-3">
               <label class="h6 ml-3">End date: </label>
-              <input type="text" class="form-control ml-3" style="width: 100px;"  [bsConfig]="bsConfig" bsDatepicker  value="{{ form.end | date:'MMM, yyyy' }}">
+              <input type="text" class="form-control ml-3" style="width: 100px;" [(ngModel)]="form.end"  [bsConfig]="bsConfig" bsDatepicker  value="{{ form.end | date:'MMM, yyyy' }}">
             </div>
             <div class="form-group col-6">
               <label  for="cityTitle">City:</label>
@@ -229,7 +228,7 @@
           <div class="form-row">
             <div class="col"><h6>Description:</h6>
               <div id="edQuill3" class="editText3">
-                <quill-editor id="edit3" [(ngModel)]="edit3" placeholder="A few words about yourself...">
+                <quill-editor id="edit3" [(ngModel)]="form.decrpt" placeholder="A few words about yourself...">
                 </quill-editor>
               </div>
             </div>

@@ -4,22 +4,23 @@
       <div class="col-2">
         <h2 align="center" class="mt-3">{{resume.firstName}} {{resume.secondName}}</h2>
       </div>
-      <div class="col">
+      <div class="col p-sm-0">
         <i class="fa fa-home"></i>
         {{resume.country}}<br>
         <div class="ml-4">
-          {{resume.city}} <br> {{resume.postCode}}
+          {{resume.city}} <br>Post code: {{resume.postCode}}
         </div>
+
       </div>
       <div class="col">
         <i class="fa fa-flag"></i> {{resume.citizenShip}} <br/>
-        <i class="fa fa-envelope"></i>{{resume.email}}<br/>
         <i class="fa fa-phone" style="font-size: 1rem;"></i>{{resume.phone}}
+        <div><i class="fa fa-bookmark"></i>Want to relocate (Germany)</div>
       </div>
       <div class="row-cols-md-8">
         <i class="fa fa-globe"></i> {{resume.web}}<br/>
         <i class="fa fa-skype"></i> {{resume.skype}}<br/>
-        <i class="fa fa-github"></i> {{resume.gitHub}} <br/>
+        <i class="fa fa-envelope"></i>{{resume.email}}<br/>
       </div>
       <div class="col">
         <div>
@@ -31,7 +32,7 @@
     </div>
   </div>
   <!--  Beginning of the resume body -->
-  <div class="row mb-3">
+  <div class="row">
     <div class="col-md-8"> <strong class="fa fa-user-circle h4 ml-3"> Profile: </strong>
       <div id="quill" class="editText ml-3">
         &nbsp; &nbsp;  {{resume.profile}}
@@ -47,116 +48,91 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8 ml-2"> <strong class="fa fa-graduation-cap h4"> Education </strong>
+    <div class="col-md-8 ml-2 mt-2"> <strong class="fa fa-graduation-cap h4"> Education </strong>
       <div *ngFor="let educ of resume.edu">
       <div class="row">
           <div class="col-md-4">
             <div class="ml-3"> {{educ.start|date:'MMMM yyyy'}}  - {{educ.end|date: 'MMMM yyyy'}} </div>
           </div>
           <div class="col-md-8">
-            <div class="ml-3 h5"> {{educ.school}} {{educ.degree}} </div>
+            <div class="ml-3 h5"> {{educ.school}} </div>
         </div>
       </div>
         <div class="row mb-4">
           <div class="col-md-10">
             <div class="ml-3 editText">&nbsp; &nbsp; {{educ.decrpt}} </div>
+            <div class="h6 ml-3"> Degree: {{educ.degree}}</div>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-4">
-            <div class="ml-3"> {{educ.start|date:'MMMM yyyy'}}  - {{educ.end|date: 'MMMM yyyy'}} </div>
-          </div>
-          <div class="col-md-8">
-            <div class="ml-3 h5"> {{educ.school}} {{educ.degree}} </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-10">
-            <div class="ml-3 editText">&nbsp; {{educ.decrpt}} </div>
-          </div>
-        </div>
-
-     <hr style="width: 85%; margin-left: 0">
+<!--     <hr style="width: 85%; margin-left: 0">-->
     </div>
+
+      <div class="row">
+        <div class="col-12">
+
+
+          <div class="row">
+            <div class="col-md-10 ml-2"> <strong class="fa fa-briefcase h4"> Employment history: </strong>
+              <div *ngFor="let empl of resume.empl">
+                <div class="row">
+                  <div class="col-4 ml-3">
+                    {{empl.start|date:'MMM yyyy'}} - {{empl.end| date:'MMM yyyy'}}
+                    <p>{{empl.city}}</p>
+                  </div>
+                  <div class="col-7 h5">
+                    {{empl.job}} <br><h6>{{empl.empl}}</h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col ml-3">
+                    &nbsp; &nbsp; {{empl.decrpt}}
+                  </div>
+                </div>
+<hr>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
     <div class="col-md-3 h4 fa">
       <h4> Professional skills:</h4>
       <div *ngFor="let skill of resume.skills">
           <!--      skills elements   -->
-        <span>{{skill.skill}} &nbsp; &nbsp; </span>
+
+        <label>{{skill.skill}}</label>
+
+          <div class="float-right">
           <ng-template #t let-fill="fill">
             <span class="gift" [class.full]="fill === 100">
-              <span class="half" [style.width.%]="fill">  <i class="fa fa-circle h6 ml-1"> </i>
-              </span>  <i class="fa fa-circle-o  ml-1"> </i>
+              <span class="half" [style.width.%]="fill">  <i class="fa fa-circle small ml-1"> </i>
+              </span> <i class="fa fa-circle-o small ml-1"> </i>
             </span>
           </ng-template>
           <ngb-rating  rate="{{skill.skillValue}}" [starTemplate]="t" max="9"></ngb-rating>
+          </div>
       </div>
+      <hr>
+      <i class="fa fa-linkedin"></i> <a href="https://linkedin.com/in/anna-korotkova-1b126a77/"> LinkedIn profile </a><br/>
+      <i class="fa fa-github"></i> <a href="{{resume.gitHub}}"> GitHub profile </a>
     </div>
   </div>
 
-
-  <div class="row mb-3">
-    <div class="col-md-10 ml-2"> <strong class="fa fa-briefcase h4"> Employment history: </strong>
-      <div *ngFor="let empl of resume.empl">
-        <div class="row">
-          <div class="col-4 ml-3">
-            {{empl.start|date:'MMM yyyy'}} - {{empl.end| date:'MMM yyyy'}}
-            <p>{{empl.city}}</p>
-          </div>
-          <div class="col-7 h5">
-            {{empl.job}} <br><h6>{{empl.empl}}</h6>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col ml-3">
-            &nbsp; &nbsp; {{empl.decrpt}}
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-4 ml-3">
-            {{empl.start|date:'MMM yyyy'}} - {{empl.end| date:'MMM yyyy'}}
-            <p>{{empl.city}}</p>
-          </div>
-          <div class="col-7 h5">
-            {{empl.job}} <br><h6>{{empl.empl}}</h6>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col ml-3">
-            &nbsp; &nbsp; {{empl.decrpt}}
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-4 ml-3">
-            {{empl.start|date:'MMM yyyy'}} - {{empl.end| date:'MMM yyyy'}}
-            <p>{{empl.city}}</p>
-          </div>
-          <div class="col-7 h5">
-            {{empl.job}} <br><h6>{{empl.empl}}</h6>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col ml-3">
-            &nbsp; &nbsp; {{empl.decrpt}}
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
 
   <div class="row">
-    <div class="col-md-10"> <strong class="fa fa-certificate h4"> Cources & Trainings: </strong>
-      <p class="ml-3">{{resume.cources}}</p>
+    <div  class="col  h5"> <strong class="fa fa-certificate"> Cources & Trainings: </strong>
+      <div id="cource">
+        <div class="editText ml-4"> Stanford University (Coursera) 10/2019
+        https://www.coursera.org/account/accomplishments/verify/M8P6GJAE2AL2
+        </div>
+      </div>
     </div>
   </div>
 
 </div>
 
-<div>
-  <button class="btn btn-success mx-3" (click)="openPDF()"> Download PDF <i class="fa fa-paper-plane"></i></button>
-</div>
+<!--<div>-->
+<!--  <button class="btn btn-success mx-3" (click)="openPDF()"> Download PDF <i class="fa fa-paper-plane"></i></button>-->
+<!--</div>-->
