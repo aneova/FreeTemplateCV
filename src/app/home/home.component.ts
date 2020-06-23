@@ -38,6 +38,7 @@ export interface Skill {
 }
 
 export interface ResumeForm {
+  linkedIn: string;
   imagePreview: File;
   imagePath: string;
   firstName: string;
@@ -104,6 +105,7 @@ export class HomeComponent implements OnInit {
   skype: string;
   gitHub: string;
   profile: string;
+  linkedIn: string;
 
 
   constructor(private uploadService: UploadService) {
@@ -162,8 +164,6 @@ export class HomeComponent implements OnInit {
   addLanguage() {
     const l: Lang = { language: this.selectedLang, level: this.selectedLangLevel};
     this.langArray.push(l);
-    console.log(l);
-    console.log(this.skillsArray);
   }
 
   addEducation() {
@@ -225,7 +225,7 @@ export class HomeComponent implements OnInit {
                             firstName: this.fname, secondName: this.sname,
                             country: this.country, city: this.city, citizenShip: this.citizenShip,
                             postCode: this.postCode, phone: this.phone, email: this.email, web: this.web,
-                            skype: this.skype, gitHub: this.gitHub, profile: this.profile, edu: this.eduArray,
+                            skype: this.skype, gitHub: this.gitHub, linkedIn: this.linkedIn, profile: this.profile, edu: this.eduArray,
                             lang: this.langArray, empl: this.emplArray, skills: this.skillsArray, cources: this.cource};
     localStorage.setItem('resume', JSON.stringify(res));
     window.open('/preview');
