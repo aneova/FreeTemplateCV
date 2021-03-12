@@ -38,7 +38,7 @@
     "angular-material-fileupload": "^2.0.0",
     "bootstrap": "^4.5.0",
     "html2canvas": "^1.0.0-rc.5",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "mat-file-upload": "^1.4.1",
     "ng2-file-upload": "^1.4.0",
     "ngx-bootstrap": "^5.6.1",
